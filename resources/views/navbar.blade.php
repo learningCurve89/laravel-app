@@ -27,27 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" onclick="goFoods()">food</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="goShops()">shops</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" onclick="goPeople()">people</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            my Lists
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">List 1</a></li>
-                            <li><a class="dropdown-item" href="#">List 2</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                        </ul>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -73,13 +53,7 @@
     function goHome() {
         window.location = '/';
     }
-    function goShops() {
-        window.location = '/shops';
-    }
     function goPeople() {
         window.location = '/people';
-    }
-    function goFoods() {
-        window.location = '/foods';
     }
 </script>
