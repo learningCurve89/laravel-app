@@ -3,6 +3,9 @@
 use App\Http\Controllers\FoxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonController;
+use App\Foo;
+use App\Bar;
+use App\Moo;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +28,26 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/people', [PersonController::class, 'index'])->name('people.index');
 
-Route::get('/people/create', [PersonController::class, 'create'])->name('people.create')->middleware('auth');
+Route::get('/people/create', [PersonController::class, 'create'])
+    ->name('people.create')
+    ->middleware('auth');
 
-Route::post('/people', [PersonController::class, 'store'])->name('people.store')->middleware('auth');
+Route::post('/people', [PersonController::class, 'store'])
+    ->name('people.store')
+    ->middleware('auth');
 
 Route::get('/people/{person}', [PersonController::class, 'show'])
-->name('people.show')->middleware('throttle:2,2');;
+    ->name('people.show')
+    ->middleware('throttle:2,2');
 
-Route::delete('/people/{person}', [PersonController::class, 'destroy'])
-->name('people.destroy');
+Route::delete('/people/{person}', [PersonController::class, 'destroy'])->name(
+    'people.destroy'
+);
 
-Route::get('/foxes', [FoxController::class, 'index'])
-->name('foxes.show');
+Route::get('/foxes', [FoxController::class, 'index'])->name('foxes.show');
+
+Route::get('/example', [PersonController::class,'example']);
+
+app()->singleton('App\Foo', function ($app) {
+    return new Foo(new Bar(new Moo()));
+});

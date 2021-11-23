@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Foo;
 use App\Models\Person;
 use Illuminate\Http\Request;
 
@@ -102,5 +103,11 @@ class PersonController extends Controller
         return redirect()
             ->route('people.index')
             ->with('message', 'Person was deleted');
+    }
+
+    public function example(Foo $t)
+    {
+        dd($t);
+        return 'The example method returned this';
     }
 }
